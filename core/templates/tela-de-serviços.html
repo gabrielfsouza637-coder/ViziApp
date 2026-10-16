@@ -12,7 +12,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <h2>Serviços Disponíveis</h2>
 
+{% for servico in servicos %}
+    <div class="card-servico">
+        <h3>{{ servico.nome }}</h3>
+        <p>Preço: R$ {{ servico.preco }}</p>
+        <p>Prestador: {{ servico.prestador.nome }}</p>
+        <p>Contacto: {{ servico.prestador.whatsapp }}</p>
+    </div>
+{% empty %}
+    <p>Nenhum serviço cadastrado até ao momento.</p>
+{% endfor %}
+  
   <div class="app-container">
     
     <!--Aqui é o Cabeçalho com Logo e Menu -->

@@ -20,5 +20,6 @@ from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+   path('viziapp/', listar_categoria, name='listar_categoria'),
     path('', inicial, name='inicial'),
 ]
