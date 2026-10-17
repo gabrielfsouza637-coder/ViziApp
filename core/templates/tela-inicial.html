@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Página Inicial</h1>
+    <nav>
+    <a href="{% url 'inicial' %}">Início</a>
+    <a href="{% url 'listar_servicos' %}">Ver Serviços</a>
+    <a href="{% url 'listar_prestadores' %}">Prestadores</a>
+</nav>
+
+<h1>Bem-vindo ao ViziApp</h1>
+<p>Encontre os melhores serviços dos municípios vizinhos!</p>
+
+<a href="{% url 'listar_servicos' %}">
+    <button>Explorar Catálogo de Serviços</button>
+</a>
+
+<a href="{% url 'cadastrar_servico' %}">
+    <button>Cadastrar-se como Prestador</button>
+</a>
+   
 </body>
 </html>

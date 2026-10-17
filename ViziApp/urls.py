@@ -16,10 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import *
+from core import views  # Importa o ficheiro views.py do app 'core'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   path('viziapp/', listar_categoria, name='listar_categoria'),
-    path('', inicial, name='inicial'),
+    
+    
+    path('', views.inicial, name='inicial'),
+
+    path('cadastrar-servico/', views.cadastrar_servico, name='cadastrar_servico'),
+    
+    
+    path('servicos/', views.listar_servicos, name='listar_servicos'),
+    
+    
+    path('viziapp/', views.listar_categoria, name='listar_categoria'),
+    
+    
+    path('servico/<int:servico_id>/', views.detalhe_servico, name='detalhe_servico'),
+    
+    
+    path('prestadores/', views.listar_prestadores, name='listar_prestadores'),
 ]

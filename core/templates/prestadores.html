@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Prestadores Cadastrados - ViziApp</title>
+</head>
+<body>
+    <h1>Prestadores Cadastrados</h1>
+
+    <a href="{% url 'cadastrar_servico' %}">
+        <button>+ Cadastrar Novo Prestador</button>
+    </a>
+    <a href="{% url 'inicial' %}">Voltar para o Início</a>
+
+    <hr>
+
+    <ul>
+    {% for prestador in prestadores %}
+        <li>
+            <strong>{{ prestador.nome }}</strong><br>
+            💬 WhatsApp: {{ prestador.whatsapp }} | ⏰ Horário: {{ prestador.horario }}
+        </li>
+        <br>
+    {% empty %}
+        <li>Nenhum prestador cadastrado até ao momento.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
