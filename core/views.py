@@ -10,7 +10,6 @@ def inicial(request):
     contexto = {
         'titulo': 'Bem-vindo ao ViziApp'
     }
-
     return render(request, 'tela-inicial.html', contexto)
 
 def listar_servicos(request):
@@ -70,3 +69,8 @@ def editar_prestador(request, id):
         'form_prestador': form
     }
     return render(request, 'cadastrar-serviços.html', contexto)
+
+def remover_prestador(request, id):
+    prestador = get_object_or_404(Prestador, id=id)
+    prestador.delete()
+    return redirect('listar_prestadores')

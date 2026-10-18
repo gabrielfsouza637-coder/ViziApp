@@ -20,22 +20,12 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
-    
     path('', views.inicial, name='inicial'),
-
     path('cadastrar-servico/', views.cadastrar_servico, name='cadastrar_servico'),
-    
-    
     path('servicos/', views.listar_servicos, name='listar_servicos'),
-    
-    
     path('viziapp/', views.listar_categoria, name='listar_categoria'),
-    
-    
     path('servico/<int:servico_id>/', views.detalhe_servico, name='detalhe_servico'),
-    
-    
     path('prestadores/', views.listar_prestadores, name='listar_prestadores'),
+    path('prestador_remover/<int:id>/', views.remover_prestador, name='remover_prestador'),
     path('editar_prestador/<int:id>/', views.editar_prestador, name='editar_prestador'),
 ]

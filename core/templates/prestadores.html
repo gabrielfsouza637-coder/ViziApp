@@ -21,6 +21,8 @@
             💬 WhatsApp: {{ prestador.whatsapp }} | ⏰ Horário: {{ prestador.horario }}<br>
             <a href="{% url 'editar_prestador' prestador.id %}">
                 <button>✏️ Editar</button>
+                <a href="{% url 'remover_prestador' prestador.id %}"><button> ❌ Remover </button></a>
+                 
             </a>
         </li>
         <br>
