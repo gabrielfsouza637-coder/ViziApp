@@ -59,3 +59,14 @@ def listar_prestadores(request):
         'prestadores': prestadores
     }
     return render(request, 'prestadores.html', contexto)
+
+def editar_prestador(request, id):
+    prestador = get_object_or_404(Prestador, id=id)
+    form = PrestadorForm(request.POST or None, instance=prestador)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_prestadores')
+    contexto = {
+        'form_prestador': form
+    }
+    return render(request, 'cadastrar-serviços.html', contexto)

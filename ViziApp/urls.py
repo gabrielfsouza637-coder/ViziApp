@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core import views  # Importa o ficheiro views.py do app 'core'
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +37,5 @@ urlpatterns = [
     
     
     path('prestadores/', views.listar_prestadores, name='listar_prestadores'),
+    path('editar_prestador/<int:id>/', views.editar_prestador, name='editar_prestador'),
 ]

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Senha - ViziApp</title>
+</head>
+<body>
+    <h1>Alterar Senha de {{ prestador.nome }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div style="color: red; font-weight: bold; margin-bottom: 15px;">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>⚠️ {{ field.label }}: {{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Atualizar Senha</button>
+    </form>
+
+    <br>
+    <a href="{% url 'listar_prestadores' %}">Voltar para a lista</a>
+</body>
+</html>

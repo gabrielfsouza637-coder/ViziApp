@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ViziApp - Encontre Profissionais</title>
   
-  <!--Aqui temos o Arquivo CSS Externo -->
   <link rel="stylesheet" href="styles.css">
-  
-  <!-- Ícones Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,7 +15,6 @@
     <div class="card-servico">
         <h3>{{ servico.nome }}</h3>
         <p>Preço: R$ {{ servico.preco }}</p>
-        <!-- Link para abrir a tela de detalhes passando o id do serviço -->
         <a href="{% url 'detalhe_servico' servico.id %}">Ver Detalhes</a>
     </div>
 {% empty %}

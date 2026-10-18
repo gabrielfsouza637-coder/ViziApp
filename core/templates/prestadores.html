@@ -18,11 +18,14 @@
     {% for prestador in prestadores %}
         <li>
             <strong>{{ prestador.nome }}</strong><br>
-            💬 WhatsApp: {{ prestador.whatsapp }} | ⏰ Horário: {{ prestador.horario }}
+            💬 WhatsApp: {{ prestador.whatsapp }} | ⏰ Horário: {{ prestador.horario }}<br>
+            <a href="{% url 'editar_prestador' prestador.id %}">
+                <button>✏️ Editar</button>
+            </a>
         </li>
         <br>
     {% empty %}
-        <li>Nenhum prestador cadastrado até ao momento.</li>
+        <li>Nenhum prestador cadastrado até o momento.</li>
     {% endfor %}
     </ul>
 </body>
