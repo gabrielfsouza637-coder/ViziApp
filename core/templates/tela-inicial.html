@@ -1,27 +1,126 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViziApp - Encontre profissionais de confiança</title>
+  
+  <!-- Fonte Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Ícones FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Arquivo Estilo CSS -->
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}" />
 </head>
 <body>
-    <nav>
-    <a href="{% url 'inicial' %}">Início</a>
-    <a href="{% url 'listar_servicos' %}">Ver Serviços</a>
-    <a href="{% url 'listar_prestadores' %}">Prestadores</a>
-</nav>
 
-<h1>Bem-vindo ao ViziApp</h1>
-<p>Encontre os melhores serviços dos municípios vizinhos!</p>
+  <!-- NAVEGAÇÃO / HEADER (Mantendo suas rotas originais do Django) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fa-solid fa-house-user"></i>
+        <span>VIZI<span>APP</span></span>
+      </div>
 
-<a href="{% url 'listar_servicos' %}">
-    <button>Explorar Catálogo de Serviços</button>
-</a>
+      <nav class="nav-menu">
+        <a href="{% url 'inicial' %}" class="active">Início</a>
+        <a href="{% url 'listar_servicos' %}">Ver Serviços</a>
+        <a href="{% url 'listar_prestadores' %}">Prestadores</a>
+      </nav>
 
-<a href="{% url 'cadastrar_servico' %}">
-    <button>Cadastrar-se como Prestador</button>
-</a>
-   
+      <div class="nav-actions">
+        <a href="{% url 'cadastrar_servico' %}">
+          <button class="btn-primary">Cadastrar-se como Prestador</button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-container">
+      
+      <!-- LADO ESQUERDO: TEXTOS, BUSCA E OS SEUS BOTÕES -->
+      <div class="hero-content">
+        <div class="badge">
+          <span class="dot"></span> Conectando a vizinhança
+        </div>
+
+        <h1>Bem-vindo ao <span class="highlight">ViziApp</span></h1>
+        
+        <p class="subtitle">
+          Encontre os melhores serviços dos municípios vizinhos! Rápido, seguro e sem intermediários.
+        </p>
+
+        <!-- BARRA DE BUSCA -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="O que você procura hoje?" />
+          <button class="btn-search">Buscar</button>
+        </div>
+
+        <!-- TAGS POPULARES -->
+        <div class="popular-tags">
+          <span class="tag-title">Popular:</span>
+          <a href="{% url 'listar_servicos' %}" class="tag">Eletricista</a>
+          <a href="{% url 'listar_servicos' %}" class="tag">Encanador</a>
+          <a href="{% url 'listar_servicos' %}" class="tag">Diarista</a>
+        </div>
+
+        <!-- SEUS BOTÕES PRINCIPAIS INTEGRADOS COM O DESIGN -->
+        <div class="action-buttons-group" style="display: flex; gap: 12px; margin-top: 24px;">
+          <a href="{% url 'listar_servicos' %}">
+            <button class="btn-primary" style="padding: 12px 24px; border-radius: 24px; border: none; cursor: pointer; font-weight: 700;">
+              Explorar Catálogo de Serviços
+            </button>
+          </a>
+
+          <a href="{% url 'cadastrar_servico' %}">
+            <button class="btn-secondary" style="padding: 12px 24px; border-radius: 24px; border: 1px solid #0d9488; color: #0d9488; background: transparent; cursor: pointer; font-weight: 700;">
+              Cadastrar-se como Prestador
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- LADO DIREITO: CARD DE DESTAQUE / MAPA -->
+      <div class="hero-card-wrapper">
+        <div class="floating-card">
+          <div class="card-header">
+            <div class="mini-logo"><i class="fa-solid fa-house-user"></i></div>
+            <span class="badge-live">Ao vivo</span>
+          </div>
+
+          <!-- SIMULAÇÃO DO MAPA -->
+          <div class="map-preview">
+            <div class="pin pin-1"><i class="fa-solid fa-star"></i></div>
+            <div class="pin pin-main"><i class="fa-solid fa-star"></i></div>
+            <div class="location-label">
+              <i class="fa-solid fa-location-dot"></i> Municípios Vizinhos
+            </div>
+          </div>
+
+          <!-- ESTATÍSTICAS -->
+          <div class="card-stats">
+            <div class="stat-box">
+              <h3>+500</h3>
+              <p>profissionais</p>
+            </div>
+            <div class="stat-box">
+              <h3>95%</h3>
+              <p>aprovação</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 </body>
 </html>
