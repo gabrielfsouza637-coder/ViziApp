@@ -74,3 +74,29 @@ def remover_prestador(request, id):
     prestador = get_object_or_404(Prestador, id=id)
     prestador.delete()
     return redirect('listar_prestadores')
+
+def login(request):
+    erro = None
+    
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        try:
+            # Aqui é a função que procura o prestador cadastrado pelo e-mail
+            prestador = Prestador.objects.get(email=email)
+            
+            # Aqui esta a validação se a senha informada é igual à salva no banco
+            if prestador.senha == senha:
+                # Aqui está a validação se o ID do prestador na sessão do navegador
+                request.session['prestador_id'] = prestador.id
+                return redirect('listar_prestadores')
+            else:
+                erro = "Senha incorreta. Tente novamente."
+        except Prestador.DoesNotExist:
+            erro = "E-mail não encontrado no sistema."
+
+    contexto = {
+        'erro': erro
+    }
+    return render(request, 'login.html', contexto)
