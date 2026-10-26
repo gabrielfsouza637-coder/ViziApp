@@ -27,5 +27,6 @@ urlpatterns = [
     path('servico/<int:servico_id>/', views.detalhe_servico, name='detalhe_servico'),
     path('prestadores/', views.listar_prestadores, name='listar_prestadores'),
     path('prestador_remover/<int:id>/', views.remover_prestador, name='remover_prestador'),
+    path('login/' , views.login, name='tela-login'),
     path('editar_prestador/<int:id>/', views.editar_prestador, name='editar_prestador'),
 ]
