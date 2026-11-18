@@ -1,3 +1,261 @@
+/* ================= Aqui está o menu e rodapé ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F4F8F8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1E293B;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Aqui é a formatação da logo --- */
+.logo-img {
+    height: 44px;
+    width: 44px;
+    object-fit: cover;
+    border-radius: 10px; }
+
+/* --- Decidimos colocar o cabeçalho e menu bem aqui --- */
+header {
+    background-color: #FFFFFF;
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #164E55;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #164E55;
+}
+
+.btn-nav-cadastro {
+    background-color: #164E55;
+    color: #FFFFFF !important;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-nav-cadastro:hover {
+    background-color: #0F393E;
+}
+
+/* ================= PÁGINAS INTERNAS E FORMULÁRIOS ================= */
+.container-pagina {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.form-card {
+    background-color: #FFFFFF;
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(22, 78, 85, 0.08);
+    border-top: 4px solid #164E55;
+}
+
+.form-card h1 {
+    color: #164E55;
+    font-size: 26px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.form-card form p {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #1E293B;
+    background-color: #F8FAFC;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    outline: none;
+    border-color: #164E55;
+    background-color: #FFFFFF;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #164E55;
+    color: #FFFFFF;
+    border: none;
+    padding: 13px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #0F393E;
+}
+
+.link-voltar {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #164E55;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.link-voltar:hover {
+    text-decoration: underline;
+}
+
+/* --- Listagem dos prestadores --- */
+.tabela-viziapp {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    margin-top: 20px;
+}
+
+.tabela-viziapp th {
+    background-color: #164E55;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
+.tabela-viziapp td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: 14px;
+    color: #334155;
+}
+
+.tabela-viziapp tr:hover {
+    background-color: #F1F5F9;
+}
+
+/* --- Aqui temos o conteúdo principal --- */
+main {
+    flex: 1;
+    width: 100%;
+}
+
+/* --- Aqui está a linkagemn para o rodapé funcionar em todas as páginas --- */
+footer {
+    background-color: #164E55;
+    color: #E2E8F0;
+    padding: 35px 8% 20px;
+    margin-top: 60px;
+}
+
+.footer-conteudo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-coluna h3 {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-coluna p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 320px;
+    color: #CBD5E1;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #FFFFFF;
+}
+
+.footer-copy {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #94A3B8;
+}
+
+/* ================= Aqui estão os cards da tela inicial ================= */
 .hero {
     max-width: 900px;
     margin: 0 auto;
@@ -32,7 +290,7 @@
     line-height: 1.5;
 }
 
-/* --- BARRA DE BUSCA --- */
+/* --- Aqui encontra-se a formatação da área de busca --- */
 .search-box {
     display: flex;
     justify-content: center;
@@ -93,7 +351,7 @@
     color: #FFFFFF;
 }
 
-/* --- BOTÕES PRINCIPAIS --- */
+/* --- Aqui estão os botões principais --- */
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -136,7 +394,7 @@
     color: #FFFFFF;
 }
 
-/* --- CARDS DE DESTAQUE / ESTATÍSTICAS --- */
+/* --- Aqui estão os cards de estatística --- */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -171,4 +429,183 @@
     font-size: 14px;
     color: #64748B;
     font-weight: 500;
+}
+
+nav a {
+    text-decoration: none;
+    color: #334155;
+}
+
+/* ================= Aqui está a tela de serviços ================= */
+.servicos-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 30px;
+}
+
+.servicos-header h1 {
+    font-size: 34px;
+    color: #0F172A;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.servicos-header p {
+    font-size: 16px;
+    color: #475569;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* --- Aqui está a barra de categoria --- */
+.categoria-barra {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.categoria-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748B;
+}
+
+.categoria-pill.ativa {
+    background-color: #164E55;
+    color: #FFFFFF;
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- aqui está a grade de cards por serviço --- */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 45px;
+}
+
+.servico-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(22, 78, 85, 0.07);
+    border-top: 4px solid #164E55;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.servico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(22, 78, 85, 0.13);
+}
+
+.servico-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.servico-icone {
+    width: 54px;
+    height: 54px;
+    background-color: #E0F2F1;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.servico-badge {
+    background-color: #F1F5F9;
+    color: #164E55;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.servico-card h2 {
+    font-size: 22px;
+    color: #0F172A;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.servico-card p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.servico-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.servico-tags span {
+    background-color: #F8FAFC;
+    color: #334155;
+    border: 1px solid #E2E8F0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.btn-servico {
+    display: block;
+    text-align: center;
+    background-color: #164E55;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 13px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.btn-servico:hover {
+    background-color: #0F393E;
+}
+
+/* --- Aqui é o banner inferior --- */
+.banner-motorista {
+    background-color: #E0F2F1;
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.banner-motorista h3 {
+    color: #164E55;
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.banner-motorista p {
+    color: #334155;
+    font-size: 14px;
 }

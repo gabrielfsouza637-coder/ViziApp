@@ -1,94 +1,54 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - ViziApp</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <header>
-        <a href="{% url 'inicial' %}" class="logo">🏠 VIZIAPP</a>
-        <nav>
-            <a href="{% url 'inicial' %}">Início</a>
-            <a href="{% url 'listar_servicos' %}">Ver Serviços</a>
-            <a href="{% url 'listar_prestadores' %}">Prestadores</a>
-            <a href="{% url 'tela-login' %}">Login</a>
-            <a href="{% url 'cadastrar_servico' %}" class="btn-nav-cadastro">Cadastrar-se</a>
-        </nav>
-    </header>
+{% block title %}Início - ViziApp{% endblock %}
 
-    <main>
-        <section class="hero">
-            <span class="tag-vizinhanca">🤝 Conectando a vizinhança</span>
-            <h1>Bem-vindo ao ViziApp</h1>
-            <p class="subtitulo">
-                Encontre os melhores serviços dos municípios vizinhos! Rápido, seguro e sem intermediários.
-            </p>
+{% block content %}
+<section class="hero">
+    <span class="tag-vizinhanca">🤝 Conectando a vizinhança</span>
+    <h1>Bem-vindo ao ViziApp</h1>
+    <p class="subtitulo">
+        Encontre os melhores serviços dos municípios vizinhos! Rápido, seguro e sem intermediários.
+    </p>
 
-            <form class="search-box" action="{% url 'listar_servicos' %}" method="GET">
-                <span>🔍</span>
-                <input type="text" name="q" placeholder="O que você procura hoje?">
-                <button type="submit">Buscar</button>
-            </form>
+    <form class="search-box" action="{% url 'listar_servicos' %}" method="GET">
+        <span>🔍</span>
+        <input type="text" name="q" placeholder="O que você procura hoje?">
+        <button type="submit">Buscar</button>
+    </form>
 
-            <div class="popular-tags">
-                Popular:
-                <a href="{% url 'listar_servicos' %}?q=Eletricista">Eletricista</a>
-                <a href="{% url 'listar_servicos' %}?q=Encanador">Encanador</a>
-                <a href="{% url 'listar_servicos' %}?q=Diarista">Diarista</a>
-            </div>
+    <div class="popular-tags">
+        Popular:
+        <a href="{% url 'listar_servicos' %}?q=Eletricista">Eletricista</a>
+        <a href="{% url 'listar_servicos' %}?q=Encanador">Encanador</a>
+        <a href="{% url 'listar_servicos' %}?q=Diarista">Diarista</a>
+    </div>
 
-            <div class="cta-buttons">
-                <a href="{% url 'listar_servicos' %}" class="btn-primario">Explorar Catálogo de Serviços</a>
-                <a href="{% url 'cadastrar_servico' %}" class="btn-secundario">Cadastrar-se como Prestador</a>
-            </div>
+    <div class="cta-buttons">
+        <a href="{% url 'listar_servicos' %}" class="btn-primario">Explorar Catálogo de Serviços</a>
+        <a href="{% url 'cadastrar_servico' %}" class="btn-secundario">Cadastrar-se como Prestador</a>
+    </div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="icone">🟢</span>
-                    <strong>Ao vivo</strong>
-                    <span>Atendimento local</span>
-                </div>
-                <div class="stat-card">
-                    <span class="icone">📍</span>
-                    <strong>Regional</strong>
-                    <span>Municípios Vizinhos</span>
-                </div>
-                <div class="stat-card">
-                    <span class="icone">🛠️</span>
-                    <strong>+500</strong>
-                    <span>Profissionais</span>
-                </div>
-                <div class="stat-card">
-                    <span class="icone">⭐</span>
-                    <strong>95%</strong>
-                    <span>Aprovação</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-conteudo">
-            <div class="footer-coluna">
-                <h3>🏠 ViziApp</h3>
-                <p>Conectando moradores aos melhores prestadores de serviços dos municípios vizinhos. Rápido, seguro e sem intermediários.</p>
-            </div>
-            <div class="footer-coluna footer-links">
-                <h3>Navegação</h3>
-                <a href="{% url 'inicial' %}">Início</a>
-                <a href="{% url 'listar_servicos' %}">Catálogo de Serviços</a>
-                <a href="{% url 'listar_prestadores' %}">Prestadores Cadastrados</a>
-                <a href="{% url 'tela-login' %}">Área do Prestador (Login)</a>
-            </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="icone">🟢</span>
+            <strong>Ao vivo</strong>
+            <span>Atendimento local</span>
         </div>
-        <div class="footer-copy">
-            &copy; 2026 ViziApp — Conectando a vizinhança. Todos os direitos reservados.
+        <div class="stat-card">
+            <span class="icone">📍</span>
+            <strong>Regional</strong>
+            <span>Municípios Vizinhos</span>
         </div>
-    </footer>
-
-</body>
-</html>
+        <div class="stat-card">
+            <span class="icone">🛠️</span>
+            <strong>+500</strong>
+            <span>Profissionais</span>
+        </div>
+        <div class="stat-card">
+            <span class="icone">⭐</span>
+            <strong>95%</strong>
+            <span>Aprovação</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

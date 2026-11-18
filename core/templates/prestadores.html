@@ -1,34 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Prestadores Cadastrados - ViziApp</title>
-</head>
-<body>
-    <h1>Prestadores Cadastrados</h1>
+{% extends 'base.html' %}
 
-    <a href="{% url 'cadastrar_servico' %}">
-        <button>+ Cadastrar Novo Prestador</button>
-    </a>
-    <a href="{% url 'inicial' %}">Voltar para o Início</a>
+{% block title %}Prestadores Cadastrados - ViziApp{% endblock %}
 
-    <hr>
+{% block content %}
+<div class="container-pagina">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+        <h1 style="color: #164E55;">Prestadores Cadastrados</h1>
+        
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="{% url 'cadastrar_servico' %}" class="btn-primario">+ Cadastrar Novo Prestador</a>
+            <a href="{% url 'inicial' %}" class="btn-secundario">Voltar para o Início</a>
+        </div>
+    </div>
 
-    <ul>
-    {% for prestador in prestadores %}
-        <li>
-            <strong>{{ prestador.nome }}</strong><br>
-            💬 WhatsApp: {{ prestador.whatsapp }} | ⏰ Horário: {{ prestador.horario }}<br>
-            <a href="{% url 'editar_prestador' prestador.id %}">
-                <button>✏️ Editar</button>
-                <a href="{% url 'remover_prestador' prestador.id %}"><button> ❌ Remover </button></a>
-                 
-            </a>
-        </li>
-        <br>
-    {% empty %}
-        <li>Nenhum prestador cadastrado até o momento.</li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
+    <table class="tabela-viziapp">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>WhatsApp</th>
+                <th>Horário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prestador in prestadores %}
+            <tr>
+                <td><strong>{{ prestador.nome }}</strong></td>
+                <td>{{ prestador.email }}</td>
+                <td>{{ prestador.whatsapp }}</td>
+                <td>{{ prestador.horario }}</td>
+                <td style="display: flex; gap: 10px;">
+                    <a href="{% url 'editar_prestador' prestador.id %}" style="color: #164E55; font-weight: 600; text-decoration: none;">Editar</a>
+                    <span>|</span>
+                    <a href="{% url 'remover_prestador' prestador.id %}" style="color: #DC2626; font-weight: 600; text-decoration: none;" onclick="return confirm('Tem certeza que deseja remover este prestador?');">Remover</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" style="text-align: center; padding: 24px; color: #64748B;">
+                    Nenhum prestador cadastrado até o momento.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

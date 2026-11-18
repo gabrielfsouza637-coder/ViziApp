@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ViziApp - Conectando a vizinhança{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'img/ViziApp.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <header>
+        <a href="{% url 'inicial' %}" class="logo">
+            <img src="{% static 'img/ViziApp.png' %}" alt="Logo ViziApp" class="logo-img">
+            <span>VIZIAPP</span>
+        </a>
+        <nav>
+            <a href="{% url 'inicial' %}">Início</a>
+            <a href="{% url 'listar_servicos' %}">Ver Serviços</a>
+            <a href="{% url 'listar_prestadores' %}">Prestadores</a>
+            <a href="{% url 'tela-login' %}">Login</a>
+            <a href="{% url 'cadastrar_servico' %}" class="btn-nav-cadastro">Cadastrar-se</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-conteudo">
+            <div class="footer-coluna">
+                <div class="footer-marca">
+                    <h3>ViziApp</h3>
+                </div>
+                <p>Conecta sua vizinhança. Fortalece sua comunidade.</p>
+            </div>
+            <div class="footer-coluna footer-links">
+                <h3>Navegação</h3>
+                <a href="{% url 'inicial' %}">Início</a>
+                <a href="{% url 'listar_servicos' %}">Catálogo de Serviços</a>
+                <a href="{% url 'listar_prestadores' %}">Prestadores Cadastrados</a>
+                <a href="{% url 'tela-login' %}">Área do Prestador (Login)</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 ViziApp — Conectando a vizinhança. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>

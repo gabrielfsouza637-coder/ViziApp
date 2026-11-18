@@ -1,29 +1,84 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ViziApp - Encontre Profissionais</title>
-  
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <h2>Catálogo de Serviços</h2>
+{% extends 'base.html' %}
 
-{% for servico in servicos %}
-    <div class="card-servico">
-        <h3>{{ servico.nome }}</h3>
-        <p>Preço: R$ {{ servico.preco }}</p>
-        <a href="{% url 'detalhe_servico' servico.id %}">Ver Detalhes</a>
+{% block title %}Serviços de Veículos - ViziApp{% endblock %}
+
+{% block content %}
+<div class="container-pagina">
+
+    <div class="servicos-header">
+        <h1>Catálogo de Serviços</h1>
+        <p>Escolha a modalidade de transporte ideal para se deslocar com rapidez e segurança pela região.</p>
+
+        <form class="search-box" action="{% url 'listar_servicos' %}" method="GET">
+            <span>🔍</span>
+            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Buscar por taxista ou mototaxista...">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-{% empty %}
-    <p>Nenhum serviço cadastrado.</p>
-{% endfor %}
 
-<a href="{% url 'cadastrar_servico' %}">
-    <button>Cadastrar-se como Prestador</button>
-</a>
+    <!-- aqui tem-se o filtro de categoria -->
+    <div class="categoria-barra">
+        <span class="categoria-label">Categoria disponível:</span>
+        <span class="categoria-pill ativa">🚗 Veículos</span>
+    </div>
 
-</body>
-</html>
+    <!-- Aqui estão os Cards de Serviços (Taxistas e Mototaxistas) -->
+    <div class="servicos-grid">
+
+        <!-- Card 1: Taxistas -->
+        <div class="servico-card">
+            <div class="servico-topo">
+                <div class="servico-icone">🚕</div>
+                <span class="servico-badge">Veículos</span>
+            </div>
+
+            <h2>Taxistas</h2>
+            <p>
+                Transporte confortável e seguro para corridas urbanas, viagens entre municípios vizinhos, compromissos e traslados com motoristas locais.
+            </p>
+
+            <div class="servico-tags">
+                <span>Viagens locais e regionais</span>
+                <span>Conforto e bagagem</span>
+            </div>
+
+            <a href="{% url 'listar_prestadores' %}?q=Taxista" class="btn-servico">
+                Ver Taxistas Disponíveis
+            </a>
+        </div>
+
+        <!-- Card 2: Mototaxistas -->
+        <div class="servico-card">
+            <div class="servico-topo">
+                <div class="servico-icone">🏍️</div>
+                <span class="servico-badge">Veículos</span>
+            </div>
+
+            <h2>Mototaxistas</h2>
+            <p>
+                Deslocamento ágil no trânsito do dia a dia e entregas rápidas de pequenos pacotes com profissionais cadastrados da vizinhança.
+            </p>
+
+            <div class="servico-tags">
+                <span>Chegada rápida</span>
+                <span>Corridas e entregas</span>
+            </div>
+
+            <a href="{% url 'listar_prestadores' %}?q=Mototaxista" class="btn-servico">
+                Ver Mototaxistas Disponíveis
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Aqui está a Chamada para novos motoristas -->
+    <div class="banner-motorista">
+        <div>
+            <h3>Trabalha como Taxista ou Mototaxista?</h3>
+            <p>Cadastre-se gratuitamente para atender moradores da sua cidade e municípios vizinhos.</p>
+        </div>
+        <a href="{% url 'cadastrar_servico' %}" class="btn-primario">Cadastrar meu Serviço</a>
+    </div>
+
+</div>
+{% endblock %}

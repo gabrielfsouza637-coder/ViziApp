@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\Users\TEMP.IFRN.111\ViziApp\venv"
+set "VIRTUAL_ENV=C:\Users\20231194010001\ViziApp\venv"
 
 if not defined PROMPT set PROMPT=$P$G
 

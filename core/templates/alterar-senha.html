@@ -23,6 +23,24 @@
 
         {{ form.as_p }}
 
+        {% extends 'base.html' %}
+
+{% block title %}Alterar Senha - ViziApp{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h1>Alterar Senha de {{ prestador.nome }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">Atualizar Senha</button>
+    </form>
+
+    <a href="{% url 'listar_prestadores' %}" class="link-voltar">Voltar para a lista</a>
+</div>
+{% endblock %}
+
         <button type="submit">Atualizar Senha</button>
     </form>
 
