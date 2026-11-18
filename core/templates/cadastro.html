@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crie sua conta - ViziApp{% endblock %}
+
+{% block content %}
+<div class="escolha-wrapper">
+    <img src="{% static 'img/ViziApp.png' %}" alt="Logo ViziApp" class="auth-logo">
+    <h1>Crie sua conta</h1>
+    <p class="auth-subtitulo">Como você vai usar o VIZIAPP?</p>
+
+    <div class="escolha-lista">
+        <!-- Card 1: Sou Morador -->
+        <a href="{% url 'listar_servicos' %}" class="escolha-card">
+            <div class="escolha-icone icone-morador">🏠</div>
+            <div class="escolha-info">
+                <div class="escolha-topo">
+                    <h2>Sou Morador</h2>
+                    <span class="seta">&rsaquo;</span>
+                </div>
+                <p>Quero encontrar profissionais de confiança no meu bairro para contratar serviços.</p>
+                <div class="escolha-tags tags-morador">
+                    <span>Grátis</span>
+                    <span>Sem anúncios</span>
+                    <span>Contato direto</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 2: Sou Prestador (leva para o formulário de prestador) -->
+        <a href="{% url 'cadastrar_servico' %}" class="escolha-card">
+            <div class="escolha-icone icone-prestador">💼</div>
+            <div class="escolha-info">
+                <div class="escolha-topo">
+                    <h2>Sou Prestador</h2>
+                    <span class="seta">&rsaquo;</span>
+                </div>
+                <p>Quero divulgar meus serviços para moradores do bairro e conquistar mais clientes.</p>
+                <div class="escolha-tags tags-prestador">
+                    <span>Cadastro grátis</span>
+                    <span>Sem mensalidade</span>
+                    <span>Clientes locais</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <p class="auth-rodape">
+        Já tem conta? <a href="{% url 'tela-login' %}">Entrar</a>
+    </p>
+</div>
+{% endblock %}

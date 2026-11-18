@@ -100,3 +100,6 @@ def login(request):
         'erro': erro
     }
     return render(request, 'login.html', contexto)
+
+def escolher_cadastro(request):
+    return render(request, 'cadastro.html')

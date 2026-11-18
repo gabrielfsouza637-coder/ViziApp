@@ -1,11 +1,26 @@
 from django.db import models
 class Prestador(models.Model):
+    OPCOES_SERVICO = [
+        ('Taxista', 'Taxista'),
+        ('Mototaxista', 'Mototaxista'),
+    ]
+
     nome = models.CharField(max_length=150)
     cpf = models.CharField(max_length=14, unique=True)  # <-- Aqui é o elemento que garante que não haverá CPFs duplicados!
     email = models.EmailField(max_length=100)
     senha = models.CharField(max_length=128)
     whatsapp = models.CharField(max_length=20)
     horario = models.CharField(max_length=100)
+    servico = models.CharField(
+        max_length=50,
+        choices=OPCOES_SERVICO,
+        default='Taxista',
+        verbose_name='Serviço Ofertado'
+    )
+
+    def __str__(self):
+        return f"{self.nome} ({self.servico})"
+    
 
 class Morador(models.Model):
     nome = models.CharField(max_length=150)
@@ -16,6 +31,30 @@ class Morador(models.Model):
 
     def __str__(self):
         return self.nome
+
+from django.db import models
+
+class Prestador(models.Model):
+    OPCOES_SERVICO = [
+        ('Taxista', 'Taxista'),
+        ('Mototaxista', 'Mototaxista'),
+    ]
+
+    nome = models.CharField(max_length=150)
+    cpf = models.CharField(max_length=14, unique=True)
+    email = models.EmailField(max_length=100)
+    senha = models.CharField(max_length=128)
+    whatsapp = models.CharField(max_length=20)
+    horario = models.CharField(max_length=100)
+    servico = models.CharField(
+        max_length=50,
+        choices=OPCOES_SERVICO,
+        default='Taxista',
+        verbose_name='Serviço Ofertado'
+    )
+
+    def __str__(self):
+        return f"{self.nome} ({self.servico})"
 
 class Servico(models.Model):
     nome = models.CharField(max_length=150)
@@ -32,3 +71,4 @@ class Solicitacao(models.Model):
 
     def __str__(self):
         return f"Solicitação #{self.id} - {self.morador.nome}"
+

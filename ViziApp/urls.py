@@ -28,5 +28,6 @@ urlpatterns = [
     path('prestadores/', views.listar_prestadores, name='listar_prestadores'),
     path('prestador_remover/<int:id>/', views.remover_prestador, name='remover_prestador'),
     path('login/' , views.login, name='tela-login'),
+    path('cadastro/', views.escolher_cadastro, name='escolher_cadastro'),
     path('editar_prestador/<int:id>/', views.editar_prestador, name='editar_prestador'),
 ]
